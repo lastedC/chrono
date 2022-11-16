@@ -27,11 +27,19 @@ for (const file of eventFiles) {
 }
 
 const commandsPath = path.join(__dirname, 'commands');
+const testPath = path.join(__dirname, 'test');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const testFiles = fs.readdirSync(testPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
+	client.commands.set(command.data.name, command);
+}
+
+for (const file of testFiles) {
+	const testFilePath = path.join(testPath, file);
+	const command = require(testFilePath);
 	client.commands.set(command.data.name, command);
 }
 
