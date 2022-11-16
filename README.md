@@ -1,0 +1,1 @@
+Chrono is the bot I am currently working on. It is a discord bot that I started work on after I noticed that many levelling bots had basic features hidden behind a paywall. With this bot, I aim to make levelling free to all users.
