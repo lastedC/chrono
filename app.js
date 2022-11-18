@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const { Client, Events } = require('discord.js');
 const Levels = require('discord-xp');
 
-const client = new Client({ intents: 3276799 });
+const client = new Client({ intents: 34304 });
 
 const mongoose = require('./database/mongoose');
 require('dotenv').config();
