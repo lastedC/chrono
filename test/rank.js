@@ -1,6 +1,7 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const Discord = require('discord.js')
+const { Client, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Levels = require('discord-xp');
-const Canvacord = require('canvacord')
+const Canvacord = require('canvacord');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +11,7 @@ module.exports = {
             option.setName('user')
                 .setDescription('Target member.')),
 
-    async execute(interaction) {
+    async execute(interaction, client) {
 
         const targetMember = interaction.options.getUser('user') ? interaction.options.getUser('user') : interaction.user;
 
@@ -31,12 +32,8 @@ module.exports = {
 
         rank.build()
             .then(data => {
-                //const attachment = new MessageAttachment(data, "RankCard.png");
-                interaction.reply({ files: "RankCard.png" });
-
-                // const emb = new EmbedBuilder()
-                //     .setImage(rank)
-                // interaction.reply(rank);
+                const attachment = new Discord.MessageAttachment(data, "RankCard.png");
+                interaction.reply( attachment );
             })
         }
     };
