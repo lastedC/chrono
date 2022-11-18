@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, Discord } = require('discord.js');
+const Discord = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,11 +8,11 @@ module.exports = {
 	async execute(interaction, client) {
 		try {
 			const mesg = await interaction.reply({ content: "Pong!", fetchReply: true });
-	  
+
 			await interaction.editReply({ content: `⌛ Getting ping...` });
-			await interaction.editReply({ content: `🏓 Pong! Bot Latency: \`${mesg.createdTimestamp - interaction.createdTimestamp}ms\`` });
-		  } catch (err) {
+			await interaction.editReply({ content: `<:ping:1043048170407604254> Pong! Bot Latency: \`${mesg.createdTimestamp - interaction.createdTimestamp}ms\`` });
+		} catch (err) {
 			console.log("Something Went Wrong => ", err);
-		  }
+		}
 	},
 };
